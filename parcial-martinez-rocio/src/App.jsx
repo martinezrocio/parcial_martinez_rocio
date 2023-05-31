@@ -12,6 +12,8 @@ function App() {
     e.preventDefault()
     if(nombre.length > 3){
       setShow(true)
+    }else{
+      alert("El nombre debe poseer mas de tres caracteres")
     }
   }
 
