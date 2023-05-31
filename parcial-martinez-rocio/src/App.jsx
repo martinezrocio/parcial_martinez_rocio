@@ -1,18 +1,31 @@
 
+import { useState } from 'react'
 import './App.css'
 import Card from './Components/Card'
+import Formulario from './Components/Formulario'
 
 function App() {
+  const[nombre, setNombre]=useState("nombre")
+  const[color, setColor]=useState("color")
+  const [show, setShow] = useState(false)
+  const handleSubmit=(e) =>{
+    e.preventDefault()
+    if(nombre.length > 3){
+      setShow(true)
+    }
+  }
+
+
+
 
   return (
-      <div className='App'>
-        <h1>Carga de estudiantes</h1>
-        <form></form>
-        <Card/>
+      <>
+        <h1>Elegi un color</h1>
+        <Formulario setNombre={setNombre} setColor={setColor} handleSubmit={handleSubmit}/>
+        {show && <Card nombre={nombre} color={color}/>}
+     
 
-        <h1></h1>
-
-      </div>
+      </>
      
  
   )
